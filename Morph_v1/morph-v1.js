@@ -1,6 +1,6 @@
 window.onload = function() {
     const useNodeJS = true;   // if you are not using a node server, set this value to false
-    const defaultLiffId = "1655274014-x5QLXn1y";   // change the default LIFF value if you are not using a node server
+    const defaultLiffId = "1655311098-vlPoxdrD";   // change the default LIFF value if you are not using a node server
 
     // DO NOT CHANGE THIS
     let myLiffId = "";
@@ -171,7 +171,7 @@ function registerButtonHandlers() {
     document.getElementById('liffLoginButton').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             // set `redirectUri` to redirect the user to a URL other than the front page of your LIFF app.
-            liff.login();
+            liff.login({ redirectUri: "https://morph-v1.herokuapp.com" });
         }
     });
 
