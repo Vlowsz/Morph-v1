@@ -56,3 +56,32 @@ function displayLiffData() {
     document.getElementById('deviceOS').textContent = liff.getOS();
     document.getElementById('lineVersion').textContent = liff.getLineVersion();
 }
+
+function displayIsInClientInfo() {
+    if (liff.isInClient()) {
+        document.getElementById('liffLoginButton').classList.toggle('hidden');
+        document.getElementById('liffLogoutButton').classList.toggle('hidden');
+        document.getElementById('isInClientMessage').textContent = 'You are opening the app in the in-app browser of LINE.';
+    } else {
+        document.getElementById('isInClientMessage').textContent = 'You are opening the app in an external browser.';
+        document.getElementById('shareTargetPicker').classList.toggle('hidden');
+    }
+}
+
+function registerButtonHandlers() {
+    // openWindow call
+    document.getElementById('openWindowButton').addEventListener('click', function() {
+        liff.openWindow({
+            url: 'https://line.me',
+            external: true
+        });
+    });
+
+    // closeWindow call
+    document.getElementById('closeWindowButton').addEventListener('click', function() {
+        if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
+        } else {
+            liff.closeWindow();
+        }
+    });
