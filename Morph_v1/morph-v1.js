@@ -1,5 +1,5 @@
 window.onload = function() {
-    const useNodeJS = false;   // if you are not using a node server, set this value to false
+    const useNodeJS = true;   // if you are not using a node server, set this value to false
     const defaultLiffId = "1655274014-x5QLXn1y";   // change the default LIFF value if you are not using a node server
 
     // DO NOT CHANGE THIS
@@ -46,7 +46,7 @@ function initializeLiffOrDie(myLiffId) {
 function initializeLiff(myLiffId) {
     liff
         .init({
-            liffId: myLiffId
+            liffId: "1655274014-x5QLXn1y"
         })
         .then(() => {
             // start to use LIFF's api
@@ -56,6 +56,8 @@ function initializeLiff(myLiffId) {
             document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
+
+        liff.init({ liffId: "1655274014-x5QLXn1y" }, successCallback, errorCallback);
 }
 
 /**
