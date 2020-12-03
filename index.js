@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const myLiffId = process.env.MY_LIFF_ID;
 
-app.use(express.static('morph_v1'));
+app.use(express.static('Morph_v1'));
 
 app.get('/send-id', function(req, res) {
     res.json({id: myLiffId});
