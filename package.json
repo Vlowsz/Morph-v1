@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@line/liff": "^2.2.1"
+  },
+  "name": "Morph-v1"
+}
